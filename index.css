@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  font-size: 1.25rem;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e0e5ec;
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  z-index: 9999;
+  border-radius: 50%;
+}
+
+.clock > div:not(:first-child) {
+  position: absolute;
+}
+
+.hour {
+  width: 7px;
+  height: 100px;
+  background-color: tomato;
+}
+
+.minute {
+  width: 5px;
+  height: 115px;
+  background-color: lightseagreen;
+}
+
+.second {
+  width: 4px;
+  height: 150px;
+  background-color: lightgreen;
+  transform: translateY(-35%);
+}
+
+.hour,
+.minute,
+.second {
+  border-radius: 3px;
+}
+
+.hour,
+.minute {
+  transform: translateY(-50%);
+}
+
+.numbers {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.numbers > span {
+  position: absolute;
+  height: 100%;
+  transform: rotate(calc(30deg * var(--i)));
+}
+
+.numbers > span > span {
+  display: inline-block;
+  opacity: 0.75;
+  transform: rotate(calc(-30deg * var(--i)));
+}
